@@ -1,0 +1,22 @@
+html {
+	-ms-text-size-adjust: 100%; // Prevents font resizing on Internet Explorer
+	-webkit-text-size-adjust: 100%; // Prevents font resizing on Chrome and Safari
+
+	* {
+		box-sizing: border-box !important; // Forces padding to be considered part of the width of an element
+		-webkit-font-smoothing: antialiased; // Cleans up font appearance on Chrome and Safari
+		-moz-osx-font-smoothing: grayscale; // Cleans up font appearance on Firefox
+	}
+
+	body {
+		margin: 0; // Remove browser applied margins
+
+		$base: 1rem !default; // Define the $base as 1rem
+		font-size: $base; // Define the body copy as $base
+
+	}
+
+	main {
+		display: block; // To fix IE not understanding the <main> tag
+	}
+}

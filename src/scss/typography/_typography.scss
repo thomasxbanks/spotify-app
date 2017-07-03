@@ -1,0 +1,57 @@
+// Style the highlight selection of web copy
+
+  ::-moz-selection {
+    color: $font_color-invert;
+    background: $font_color-main;
+  }
+  ::selection {
+      color: $font_color-invert;
+      background: $font_color-main;
+  }
+
+
+// Reset headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+i, em {
+  font-style: italic;
+}
+
+p {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+pre {
+  font-family: monospace;
+  font-size: 0.8rem;
+  width: 100%;
+  overflow: scroll;
+}
+
+.section_title {
+  @extend .tony;
+}
+
+[class*="message-"] {
+  font-size: $font_size-med;
+}
+
+.message-error {
+  color: $clr_error;
+  border: 1px solid $clr_error;
+}

@@ -1,0 +1,46 @@
+// Border Radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+// END Border Radius
+
+// Calculate color contrast
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $font_color-main; // Lighter background, return dark color
+  } @else {
+    @return $font_color-invert; // Darker background, return light color
+  }
+}
+// END Calculate color contrast
+
+// Equal percentage width children based on count
+@mixin widthSibling($max: 10, $property: width) {
+  $i: 0;
+  @while ($i < $max) {
+    $i: $i+1;
+    $j: 1;
+    $selector: "";
+    @while ($j < $i) {
+      $selector: $selector + "&:nth-child(#{$j}):nth-last-child(#{$i - $j + 1}),";
+      $j: $j+1;
+      @debug "$j #{$j}";
+    }
+    $selector: $selector + "&:nth-child(#{$j}):nth-last-child(#{$i - $j + 1})";
+
+    @debug "$i #{$i}";
+    @debug "#$selector #{$selector}";
+    #{$selector} { #{$property}: percentage(1/$i); }
+  }
+}
+
+/* USAGE:
+  .parent {
+    .child {
+      @include widthSibling;
+    }
+  }
+*/
+// END Equal percentage width children based on count

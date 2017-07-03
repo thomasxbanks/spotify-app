@@ -1,0 +1,19 @@
+[class*="content"] {
+	ul {
+		padding-left: 1rem;
+
+		li {
+			text-indent: -1.25rem;
+
+			&:before {
+				content: "";
+				background-color: $font_color-main;
+				transform: translateY(-250%);
+				margin-right: 0.75rem;
+				display: inline-block;
+				width: 10px;
+				height: 2px;
+			}
+		}
+	}
+}

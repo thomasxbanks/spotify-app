@@ -1,0 +1,7 @@
+.card-teaser {
+	@extend .richie;
+	font-size: 1rem;
+	background: $clr_white;
+	padding: 1rem;
+  box-shadow: inset -1px -1px 0 rgba(lighten($clr_grey-mid, 15%), 0.3), inset 1px 1px 0 rgba(lighten($clr_grey-mid, 15%), 0.3);
+}

@@ -1,0 +1,92 @@
+$grid_size: 12;
+$max-grid: 1440;
+$grid-gutter: 20;
+$min-item: 300;
+$break: 2;
+
+.grid_container {
+  font-size: 0;
+  padding-right: #{($grid-gutter / 2)}px;
+  padding-left: #{($grid-gutter / 2)}px;
+}
+
+[class^="item-"] {
+  display: inline-block;
+  vertical-align: top;
+	width: calc(100% - #{$grid-gutter}px);
+	margin: #{($grid-gutter / 2)}px;
+}
+
+@supports (display: flex) {
+  [class^="grid_"] {
+  	display: flex;
+  }
+
+  .grid_container {
+
+  }
+
+  .grid_column {
+  	flex-direction: column;
+  }
+
+  .grid_column-reverse {
+  	flex-direction: column-reverse;
+  }
+
+  .grid_row {
+  	flex-direction: row;
+  }
+
+  .grid_row-reverse {
+  	flex-direction: row-reverse;
+  }
+
+  .grid_wrap {
+  	flex-wrap: wrap;
+  }
+
+  .grid_wrap-none {
+  	flex-wrap: nowrap;
+  }
+
+  .grid_wrap-reverse {
+  	flex-wrap: wrap-reverse;
+  }
+
+  .content-start {
+  	justify-content: flex-start;
+  }
+
+  .content-end {
+  	justify-content: flex-end;
+  }
+
+  .content-center {
+  	justify-content: center;
+  }
+
+  .content-between {
+  	justify-content: space-between;
+  }
+
+  .content-even {
+  	justify-content: space-around;
+  }
+
+  .items-stretch {
+  	align-items: stretch;
+  }
+}
+
+
+@media (min-width: #{($min-item * $break)}px) {
+	 @for $i from 1 through $grid_size{
+		$one: (100% / $grid_size);
+		$size: $one * $i;
+
+		.item-#{$i} {
+			width: unquote(calc(#{$size} - #{$grid-gutter}px));
+		}
+	}
+}

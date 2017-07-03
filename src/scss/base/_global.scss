@@ -1,0 +1,23 @@
+$small: 400px;
+$large: 1200px;
+
+html {
+	font-size: $font_size-med;
+	@media (min-width: $small) {
+		font-size: between($font_size-med, $font_size-std, $small, $large);
+	}
+	@media (min-width: $large) {
+		font-size: $font_size-std;
+	}
+}
+
+body {
+	background: $clr_grey-light;
+	color: $clr_grey-dark;
+}
+
+.central-column {
+	max-width: $max-width;
+	margin-right: auto;
+	margin-left: auto;
+}

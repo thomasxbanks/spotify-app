@@ -1,0 +1,63 @@
+/*
+    DEBUGGING REDLINE
+*/
+html.redline * {
+	    box-shadow: inset -1px -1px 0 rgba(255,0,0,0.3), inset 1px 1px 0 rgba(255,0,0,0.3);
+}
+
+#grid-ruler-extension * {
+	box-shadow: none !important;
+}
+/*
+  BASE
+*/
+@import "base/functions"; // Scss functions that I use a lot
+@import "base/mixins"; // Scss Mixins that I use a lot
+@import "base/animations"; // Useful Animations
+@import "base/variables"; // Define the site variables
+@import "base/normal"; // Level the playing field
+@import "base/global"; // Global Styles
+@import "base/grid"; // Grid
+/*
+  TYPOGRAPHY
+*/
+@import "typography/base"; // Define the basic typeface styles for use throughout the site
+@import "typography/typography"; // Elaborate on the basic typefaces for use in specific areas
+@import "typography/links"; // Styling for <a> tags
+/*
+  ELEMENTS
+*/
+@import "elements/buttons"; // Button styles
+@import "elements/forms"; // Form styles
+
+@import "elements/nav";
+
+@import "elements/card";
+
+header h1 {
+  @extend .tony;
+  padding: 1.5rem;
+}
+.container-fluid.ng-scope {
+	@extend .grid_container;
+	@extend .grid_row;
+	@extend .grid_wrap;
+	@extend .content-center;
+	@extend .central-column;
+}
+.container-fluid.ng-scope .content {
+  @extend .card-teaser;
+  @extend .central-column;
+  @extend .item-6;
+  margin-top: 2rem;
+	.ng-empty {
+		&:before {
+			content: "[]"
+		}
+	}
+	.ng-not-empty {
+		&:before {
+			content: "[x]"
+		}
+	}
+}

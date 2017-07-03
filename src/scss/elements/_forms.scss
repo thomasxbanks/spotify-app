@@ -1,0 +1,75 @@
+// Styling for form elements
+
+form {
+	label {
+		display: block;
+    font-weight: bold;
+    padding: 1rem 0;
+	}
+
+	input,
+	select,
+	textarea {
+		-webkit-appearance: none;
+
+		&:focus {}
+
+		&:required {}
+
+		&:disabled {}
+	}
+
+	input {
+		@extend .richie;
+		padding: 0.5rem 1rem;
+		line-height: $lh;
+
+		&[type="text"] {
+			display: block;
+			width: 100%;
+		}
+
+		&[type="email"] {
+			display: block;
+			width: 100%;
+		}
+
+		&[type="tel"] {
+			display: block;
+			width: 100%;
+		}
+
+		&[type="date"] {}
+
+		&[type="password"] {
+			display: block;
+			width: 100%;
+		}
+
+		&[type="url"] {
+			display: block;
+			width: 100%;
+		}
+
+		&[type="submit"] {
+			@extend button;
+		}
+
+		&[type="reset"] {
+			@extend button;
+		}
+
+		&[type="button"] {
+			@extend button;
+		}
+	}
+
+	select {
+		option {}
+	}
+
+	textarea {}
+  button {
+    margin: 1rem 0;
+  }
+}

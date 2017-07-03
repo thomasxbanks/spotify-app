@@ -1,0 +1,100 @@
+@keyframes pulse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+}
+@keyframes insistant {
+	0% {
+		transform: rotate(0deg) scaleX(1.00) scaleY(1.00);
+	}
+
+	10% {
+		transform: rotate(-3deg) scaleX(0.80) scaleY(0.80);
+	}
+
+	20% {
+		transform: rotate(-3deg) scaleX(0.80) scaleY(0.80);
+	}
+
+	30% {
+		transform: rotate(3deg) scaleX(1.20) scaleY(1.20);
+	}
+
+	40% {
+		transform: rotate(-3deg) scaleX(1.20) scaleY(1.20);
+	}
+
+	50% {
+		transform: rotate(3deg) scaleX(1.20) scaleY(1.20);
+	}
+
+	60% {
+		transform: rotate(-3deg) scaleX(1.20) scaleY(1.20);
+	}
+
+	70% {
+		transform: rotate(3deg) scaleX(1.20) scaleY(1.20);
+	}
+
+	80% {
+		transform: rotate(-3deg) scaleX(1.20) scaleY(1.20);
+	}
+
+	90% {
+		transform: rotate(3deg) scaleX(1.20) scaleY(1.20);
+	}
+
+	100% {
+		transform: rotate(0deg) scaleX(1.20) scaleY(1.20);
+	}
+}
+// Some general examples and generator
+// http://cssanimate.com/
+/*
+  Just for fun, here's a link to Donovan Hutchinson's CSS Animations for all 12 of the 'Disney Principles'
+  http://codepen.io/collection/AxKOdY/
+  http://codepen.io/collection/AxKOdY/2/
+  http://codepen.io/collection/AxKOdY/3/
+*/
+@keyframes arrowbounce {
+	0% {
+		transform: translate(0px, 0px);
+	}
+
+	20% {
+		transform: translate(100%, 0px);
+	}
+
+	50% {
+		transform: translate(-5px, 0px);
+	}
+
+	70% {
+		transform: translate(0px, 0px);
+	}
+
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+@keyframes underline {
+	0% {
+		width: 0;
+		left: 0;
+	}
+
+	50% {
+		width: 100px;
+		left: 0;
+	}
+
+	100% {
+		width: 0;
+		left: 100px;
+	}
+}

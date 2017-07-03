@@ -1,0 +1,11 @@
+# The dreaded node_modules - `npm i` them.
+node_modules
+
+# The distribution folder. Recompile it, lazy!
+dist
+
+# Mac placement files - no need.
+**/.DS_Store
+
+# my secret key
+/src/modules/secret.js

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('shared/head') %>
+
+<body>
+  <%- include('shared/masthead') %>
+
+	<main class="grid_container grid_row grid_wrap content-center central-column">
+		<% if (locals.statusCode <= 200) { %>
+
+			  <%- include('content/home', {locals}) %>
+
+		<% } else { %>
+
+			<%- include('content/error', {locals}) %>
+
+		<% } %>
+	</main>
+	<script src="js/app.js" charset="utf-8"></script>
+</body>
+
+</html>
