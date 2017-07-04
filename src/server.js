@@ -27,7 +27,7 @@ app.locals = {
 			access_token: '',
 			refresh_token: ''
 		},
-		scopes: 'user-read-private user-read-email'
+		scopes: 'user-read-private user-read-email user-follow-read playlist-read-private playlist-read-collaborative'
 	}
 }
 
@@ -87,7 +87,9 @@ app.get('/callback', function(req, res) {
 
 			var options = {
 				url: 'https://api.spotify.com/v1/me',
-				headers: { 'Authorization': 'Bearer ' + app.locals.auth.tokens.access_token },
+				headers: {
+					'Authorization': 'Bearer ' + app.locals.auth.tokens.access_token
+				},
 				json: true
 			}
 
@@ -121,7 +123,35 @@ app.get('/dashboard', function(req, res) {
 		current_user: app.locals.user,
 		content: (app.locals.user.display_name) ? app.locals.user.display_name : app.locals.user.id
 	}
+
+	// var options = {
+	// 	url: 'https://api.spotify.com/v1/me/following?type=artist',
+	// 	headers: {
+	// 		'Authorization': 'Bearer ' + app.locals.auth.tokens.access_token
+	// 	},
+	// 	json: true
+	// }
+	//
+	// request.get(options, function(error, response, body) {
+	// 	app.locals.artists = body
+	// 	console.log(res.locals)
+	// })
+
+	var options = {
+		url: 'https://api.spotify.com/v1/search?q=bowie&type=artist',
+		headers: {
+			'Authorization': 'Bearer ' + app.locals.auth.tokens.access_token
+		},
+		json: true
+	}
+
+	request.get(options, function(error, response, body) {
+		res.locals.search = body
+		console.log(res.locals)
+	})
+
 	res.render(app.locals.site.template, res.locals)
+
 })
 
 // Final catch-all

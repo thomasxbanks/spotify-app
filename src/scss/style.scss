@@ -30,14 +30,11 @@ html.redline * {
 @import "elements/buttons"; // Button styles
 @import "elements/forms"; // Form styles
 
-@import "elements/nav";
+@import "elements/shared/masthead";
+@import "elements/shared/nav";
 
 @import "elements/card";
 
-header h1 {
-  @extend .tony;
-  padding: 1.5rem;
-}
 .container-fluid.ng-scope {
 	@extend .grid_container;
 	@extend .grid_row;
