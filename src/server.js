@@ -42,13 +42,13 @@ app.get(['/', '/login'], function(req, res) {
 	res.locals.title = "Welcome!"
 	res.locals.user = app.locals.user
 	if ((app.locals.auth.tokens.access_token) || (app.locals.auth.tokens.refresh_token)) {
-		console.log(app.locals.auth.tokens.access_token, app.locals.auth.tokens.refresh_token)
+		//console.log(app.locals.auth.tokens.access_token, app.locals.auth.tokens.refresh_token)
 
 		res.redirect('/dashboard')
 
 	} else {
 
-		console.log('no tokens - redirecting to login page')
+		//console.log('no tokens - redirecting to login page')
 
 		res.redirect('https://accounts.spotify.com/authorize?' +
 			querystring.stringify({
@@ -96,7 +96,6 @@ app.get('/callback', function(req, res) {
 			// use the access token to access the Spotify Web API
 			request.get(options, function(error, response, body) {
 				app.locals.user = body
-				console.log(app.locals)
 				res.redirect('/dashboard')
 			})
 
@@ -116,42 +115,14 @@ app.get('/callback', function(req, res) {
 })
 
 app.get('/dashboard', function(req, res) {
-	console.log(app.locals)
+	// console.log(app.locals)
 	res.locals = {
 		statusCode: 200,
 		title: "Dashboard",
 		current_user: app.locals.user,
-		content: (app.locals.user.display_name) ? app.locals.user.display_name : app.locals.user.id
+		content: "Welcome to your dashboard, " + app.locals.user.id + "!"
 	}
-
-	// var options = {
-	// 	url: 'https://api.spotify.com/v1/me/following?type=artist',
-	// 	headers: {
-	// 		'Authorization': 'Bearer ' + app.locals.auth.tokens.access_token
-	// 	},
-	// 	json: true
-	// }
-	//
-	// request.get(options, function(error, response, body) {
-	// 	app.locals.artists = body
-	// 	console.log(res.locals)
-	// })
-
-	var options = {
-		url: 'https://api.spotify.com/v1/search?q=bowie&type=artist',
-		headers: {
-			'Authorization': 'Bearer ' + app.locals.auth.tokens.access_token
-		},
-		json: true
-	}
-
-	request.get(options, function(error, response, body) {
-		res.locals.search = body
-		console.log(res.locals)
-	})
-
 	res.render(app.locals.site.template, res.locals)
-
 })
 
 // Final catch-all

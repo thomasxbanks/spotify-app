@@ -1,27 +1,8 @@
 <article class="item-12 card-teaser">
 	<h1 class="section_title"><%= locals.title %></h1>
+	<p><%- locals.content %></p>
 </article>
-<article class="item-6 card-teaser">
-	<img src="<%- locals.current_user.images[0].url %>" alt="">
-	<h2><%- locals.content %></h2>
-</article>
-<form class="item-6 card-teaser" action="/search">
-	<label for="search">Search: </label>
-	<input id="search" type="text">
-	<button type="submit" class="material-icons">search</button>
-</form>
 <article class="item-12 card-teaser">
-	<% for (track of locals.search.artists.items) {%>
-		include ('content/track', {track})
-	<% } %>
+	<img src="<%- locals.current_user.images[0].url %>" alt="">
+	<h2><%- locals.current_user.id %></h2>
 </article>
-<% if (locals.artists) { %>
-	<aside class="item-4">
-		<div class="card-teaser">
-			<h2>Artists I follow</h2>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam necessitatibus, sint assumenda eaque culpa, optio rerum aliquam mollitia doloremque beatae adipisci, natus maiores. A, deserunt!
-			</p>
-		</div>
-	</aside>
-<% } %>
