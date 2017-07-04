@@ -93,7 +93,6 @@ gulp.task('watch', function(callback) {
 		browserSync.init({
 			proxy: "http://localhost:8008",
 			files: ["dist/**/*.*"],
-			browser: "google chrome",
 			port: 1337
 		})
 		gulp.watch(path.js.i, ['js', browserSync.reload])
